@@ -10,10 +10,12 @@ app.use(session({
 }))
 
 
-app.use((req,res,next)=>{
+const logMiddleware=((req,res,next)=>{
     console.log(" application specific Middleware")
     next()
 })
+
+app.use(logMiddleware)
 
 const authMiddleware = (req,res,next)=>{
 
